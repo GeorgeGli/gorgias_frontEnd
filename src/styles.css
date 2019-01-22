@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.bd{
+    background-color: grey;
+}
+body::-webkit-scrollbar {
+width: 8px;
+
+}
+body::-webkit-scrollbar-track {
+background:#e6e6e6;
+border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+background-color: #333333;
+border-radius: 10px;
+}

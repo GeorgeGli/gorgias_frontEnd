@@ -1,0 +1,16 @@
+@font-face {
+    font-family: titleFont;
+    src: url(/assets/fonts/Lost Sunset Personal Use.ttf);
+}
+
+#header{
+  color: white;
+}
+
+.hdr{
+  font-family:'titleFont';
+  font-size: 50px;
+  color: white;
+  background-color: #646464; /* For browsers that do not support gradients */
+  background-image: linear-gradient(#666666, #262626);
+}

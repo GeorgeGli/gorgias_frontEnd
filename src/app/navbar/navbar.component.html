@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm ">
+
+<!-- Links -->
+<a class="navbar-brand" routerLink="/#"><h2 id="header">Gorgias cloud <i class="fas fa-cloud"></i></h2></a>
+
+<!-- right navbar -->
+<ul class="navbar-nav ml-auto">
+
+<!-- editor -->
+        <li class="nav-item" [hidden]="!getLoginFlag()">
+          <a class="nav-link" routerLink="/panel">editor <i class="far fa-edit"></i></a>
+        </li>
+
+
+<!-- projects  -->
+    <li class="nav-item" [hidden]="!getLoginFlag()">
+      <a class="nav-link" routerLink="/projects">my directory <i class="far fa-folder-open"></i></a>
+    </li>
+
+
+<!-- logout-->
+     <li class="nav-item" [hidden]="!getLoginFlag()">
+          <a class="nav-link" routerLink="/logout">logout <i class="fas fa-sign-out-alt"></i></a>
+        </li>
+
+
+
+</ul>
+
+</nav>

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+     <h3 id="head">Prolog response</h3>
+  </div><hr>
+</div>
+
+<div class="container">
+
+  <div class="row">
+      <div class="col-12">
+       <textarea [(ngModel)]="queDisplay" id="queryArea" placeholder="Your query.." readonly></textarea>
+   </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12">
+       <textarea [(ngModel)]="results" id="resultArea" placeholder="Prolog response.." readonly></textarea>
+   </div>
+  </div>
+
+
+
+<hr>
+<div class="row">
+
+  <div class="col-12">
+      <textarea [(ngModel)]="myTextarea" id="area" placeholder="Write query.." (keyup.enter)="setQuery(myTextarea)"></textarea>
+
+
+    <div class="btn-group btn-group-sm" id="sizebtn">
+      <button type="button" class="btn btn-primary" (click)="setSize(1)">1</button>
+      <button type="button" class="btn btn-primary" (click)="setSize(10)">10</button>
+      <button type="button" class="btn btn-primary" (click)="setSize(50)">50</button>
+      <button type="button" class="btn btn-primary" (click)="setSize(100)">100</button>
+    </div>
+    <br>
+    <button type="button" class="btn btn-success" id="querybtn" (click)="setQuery(myTextarea)">Run the Query</button>
+  </div>
+</div>
+</div>

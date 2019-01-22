@@ -1,0 +1,29 @@
+<div class="container">
+
+  <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+
+    <div class="alert alert-success" [hidden]="success">
+      <strong>project created!</strong>
+    </div>
+
+    <div class="alert alert-danger" [hidden]="fail">
+  <strong>project name exists!</strong>
+</div>
+
+    <div class="form-group">
+      <label for="pname">project's name:</label>
+      <input  required maxlength="40" ngModel name="pname" #pname="ngModel" class="form-control">
+      <div class="alert alert-danger" *ngIf="pname.touched && !pname.valid">
+          <div *ngIf="pname.errors.required">name required!</div>
+          <div *ngIf="pname.errors.maxlength">you pass the maximum length limit!</div>
+      </div>
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary" [ngClass]="{disabled : !pname.valid}">
+            create
+    </button>
+
+  </form>
+
+</div>

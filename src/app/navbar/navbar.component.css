@@ -1,0 +1,17 @@
+@font-face {
+    font-family: titleFont;
+    src: url(/assets/fonts/Lost Sunset Personal Use.ttf);
+}
+
+#header{
+  font-family:'titleFont';
+  font-size: 50px;
+  color: white;
+}
+
+.navbar{
+  background-color: #262626;
+}
+.nav-item{
+  color: white;
+}

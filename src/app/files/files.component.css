@@ -1,0 +1,12 @@
+#head{
+  margin:auto;
+}
+
+#createbtn{
+  border-radius: 80px;
+}
+
+#arrowbtn{
+  color: #333333;
+  background-color: grey;
+}

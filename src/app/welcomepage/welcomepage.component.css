@@ -1,0 +1,13 @@
+
+@font-face {
+    font-family: titleFont;
+    src: url(/assets/fonts/Lost Sunset Personal Use.ttf);
+}
+#welcomemsg{
+  font-family:'titleFont';
+  font-size: 24px;
+  color: white;
+}
+#auth{
+  margin:auto;
+}

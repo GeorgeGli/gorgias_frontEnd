@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="row">
+         <h2 id="head">My projects</h2>
+         <button type="button" class="btn btn-success btn-sm float-right" value=".float-right" id="createbtn" (click)="open(createtemplate)"><i class="fas fa-plus"></i></button>
+    </div>
+    <hr>
+</div>
+
+<div class="container-fluid">
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-2 col-lg-2" *ngFor="let project of projects">
+           <button type="button" class="btn btn-outline-dark" [routerLink]="['/files', project]"><i class="fas fa-folder fa-5x"></i></button><br>
+            {{project}}
+           <br><br>
+        </div>
+    </div>
+
+</div>
+
+
+<ng-template #createtemplate let-c="close" let-d="dismiss">
+  <div class="modal-body">
+    <create (closeModal)="closes()"></create>
+  </div>
+</ng-template>
