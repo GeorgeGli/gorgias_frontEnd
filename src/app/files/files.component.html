@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container"><br>
 
     <div class="row">
          <h2 id="head">{{ project }}</h2>
-         <button type="button" class="btn btn-success btn-sm float-right" value=".float-right" id="createbtn" (click)="open(addtemplate)"><i class="fas fa-plus"></i></button>&nbsp;&nbsp;
-         <button type="button" class="btn btn-danger btn-sm float-right" value=".float-right" id="createbtn" (click)="open(deleteModal)"><i class="far fa-trash-alt"></i></button>
+         <button type="button" value=".float-right" id="addbtn" (click)="open(addtemplate)">&nbsp;<i class="fas fa-plus"> &nbsp; </i></button>
+         <button type="button" value=".float-right" id="deletebtn" (click)="open(deleteModal)">&nbsp;<i class="far fa-trash-alt"> &nbsp; </i></button>
 
     </div>
     <hr>
@@ -20,8 +20,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6 col-sm-6 col-md-2 col-lg-2" *ngFor="let filename of files">
-           <button type="button" class="btn btn-outline-dark" [routerLink]="['/content', filename]"><i class="fas fa-file fa-5x"></i></button><br>
+        <div class="col-6 col-sm-6 col-md-2 col-lg-2" *ngFor="let filename of files" >
+           <button type="button" class="btn btn-outline-dark" [routerLink]="['/content', filename, project]"><i class="fas fa-file fa-5x"></i></button><br>
             {{filename}}
            <br><br>
         </div>
@@ -35,9 +35,9 @@
   </div>
 </ng-template>
 
-<ng-template #deleteModal let-c="close" let-d="dismiss">
+<ng-template #deleteModal id="deletemodal" let-c="close" let-d="dismiss">
   <div class="modal-body">
       <delproj [projectname]='project' (closeModal)="closes()"></delproj>&nbsp;&nbsp;
-      <button type="button" class="btn btn-danger" (click)="c('Save click')">No</button>
+      <button type="button" class="btn btn-danger" (click)="closes()">No</button>
   </div>
 </ng-template>

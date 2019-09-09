@@ -1,12 +1,72 @@
 #head{
   margin:auto;
+  
 }
 
-#createbtn{
-  border-radius: 80px;
-}
+
 
 #arrowbtn{
   color: #333333;
-  background-color: grey;
+  background-color: transparent;
 }
+
+#arrowbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+#addbtn{
+  border-style: solid none none none;
+  background-color: transparent;
+  border-color: #004d00;
+  border-radius: 50%;
+  border-width: 3px;
+  color: #004d00;
+}
+
+#addbtn:hover{
+  background: #004d00;
+  border-color: #004d00;
+  color: white;
+}
+
+#addbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+#deletebtn{
+  border-style: none none solid none;
+  background-color: transparent;
+  border-color: rgb(145, 48, 31);
+  border-radius: 50%;
+  border-width: 3px;
+  color: rgb(145, 48, 31);
+}
+
+#deletebtn:hover{
+  background: rgb(145, 48, 31);
+  border-color: rgb(145, 48, 31);
+  color: white;
+}
+
+#deletebtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+.btn.btn-outline-dark{
+  border-style: none;
+}
+
+.btn.btn-outline-dark:hover{
+  background-color: transparent;
+}
+
+.btn.btn-outline-dark:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+
+

@@ -3,5 +3,34 @@
 }
 
 #createbtn{
-  border-radius: 80px;
+  border-style: solid none none none;
+  background-color: transparent;
+  border-color: #004d00;
+  border-radius: 50%;
+  border-width: 3px;
+  color: #004d00;
+}
+
+#createbtn:hover{
+  background: #004d00;
+  border-color: #004d00;
+  color: white;
+}
+
+#createbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+.btn.btn-outline-dark{
+  border-style: none;
+}
+
+.btn.btn-outline-dark:hover{
+  background-color: transparent;
+}
+
+.btn.btn-outline-dark:focus{
+  outline: none;
+  box-shadow: none!important;
 }

@@ -1,8 +1,12 @@
 
         <div class="container">
 
-          <ngb-alert [dismissible]="false" [hidden]="success">
+          <ngb-alert [dismissible]="false" [hidden]="successfull">
             <strong>Succesfull Registration! An email has sent to you! Click on the link to enable your account!</strong>
+          </ngb-alert>
+
+          <ngb-alert [dismissible]="false" [hidden]="failed">
+            <strong>Something went wrong!</strong>
           </ngb-alert>
 
           <h2 align="center">
@@ -30,7 +34,7 @@
                      </div>
 
                      <div class="alert"
-                          *ngIf="!regForm.controls['username'].valid && regForm.get('username').errors?.maxlength && regForm.controls['username'].touched">
+                          *ngIf="!regForm.controls['username'].valid && !!regForm.get('username').errors?.maxlength && regForm.controls['username'].touched">
                           You over pass the maximum length!
                      </div>
 
@@ -61,7 +65,7 @@
                      </div>
 
                      <div class="alert"
-                          *ngIf="!regForm.controls['password'].valid && regForm.get('password').errors.maxlength && regForm.controls['password'].touched">
+                          *ngIf="!regForm.controls['password'].valid && !!regForm.get('password').errors.maxlength && regForm.controls['password'].touched">
                           You over pass the maximum length!
                      </div>
 
@@ -111,7 +115,7 @@
                     </div>
 
                     <div class="alert"
-                         *ngIf="!regForm.controls['fname'].valid && regForm.get('fname').errors.maxlength && regForm.controls['fname'].touched">
+                         *ngIf="!regForm.controls['fname'].valid && !!regForm.get('fname').errors.maxlength && regForm.controls['fname'].touched">
                          You over pass the maximum length!
                     </div>
 
@@ -136,7 +140,7 @@
                      </div>
 
                     <div class="alert"
-                         *ngIf="!regForm.controls['lname'].valid && regForm.get('lname').errors.maxlength && regForm.controls['lname'].touched">
+                         *ngIf="!regForm.controls['lname'].valid && !!regForm.get('lname').errors.maxlength && regForm.controls['lname'].touched">
                          You over pass the maximum length!
                     </div>
 
@@ -161,7 +165,7 @@
                      </div>
 
                      <div class="alert"
-                          *ngIf="!regForm.controls['email'].valid && regForm.get('email').errors?.maxlength && regForm.controls['email'].touched">
+                          *ngIf="!regForm.controls['email'].valid && !!regForm.get('email').errors?.maxlength && regForm.controls['email'].touched">
                           You over pass the maximum length!
                      </div>
 
@@ -175,11 +179,11 @@
                           Email already exists!
                     </div>
 
-              </div>
-
+              </div><br>
+              <re-captcha [formControl]="myRecaptcha" siteKey="6LeAQqwUAAAAADTQj_SyKBEvV67FOvmp02sQOEHr"></re-captcha><br><br>
               <button type="submit"
                       class="btn btn-primary"
-                      [disabled]="!regForm.valid">
+                      [disabled]="!myRecaptcha.valid || !regForm.valid">
                       Register
               </button>
 

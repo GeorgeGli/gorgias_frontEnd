@@ -1,9 +1,37 @@
 .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
+   position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12.5rem; 
    color: white;
-   text-align: center;
-   background-color: #562929;
+     text-align: right;
+     background-color: #262626;
+   
 }
+
+
+.fas.fa{
+
+   margin-right: 2em;
+}
+.far.fa{
+
+   margin-right: 2em;
+}
+
+
+.row{
+   text-align: center;
+}
+hr{
+   border: 1px solid #808080;
+}
+a{
+   color: white;
+}
+
+@media screen and (max-width: 992px) {
+   #headers {
+     display: none;
+   }
+ }

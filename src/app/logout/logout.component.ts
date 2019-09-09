@@ -11,9 +11,13 @@ import { SharedService } from '../services/shared.service';
 export class LogoutComponent {
 
   constructor(private service: AuthenticationService, private route: Router, private shared:SharedService) {
+
             this.service.logout()
                         .subscribe(res=>{
                           this.shared.setLoginFlag(false);
+                          this.shared.setAdminFlag(false);
+                          this.shared.clearConFilesList();
+                          localStorage.removeItem("ID");
                           this.route.navigate(['/']);
                         });
       }

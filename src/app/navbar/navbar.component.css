@@ -15,3 +15,23 @@
 .nav-item{
   color: white;
 }
+
+#cloud{
+  animation: cloud_anime 4s 3s 3 alternate backwards;
+}
+
+@keyframes cloud_anime{
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+
+
+#togglebtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}

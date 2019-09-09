@@ -6,6 +6,79 @@
   border-radius: 80px;
 }
 
+#consultbtn{
+  border-width: 3px;
+  border-color: #004d00;
+  border-style: solid none none none;
+  background-color: transparent;
+  border-radius: 50%;
+  color: #004d00;
+}
+
+#consultbtn:hover{
+  background: #004d00;
+  border-color: #004d00;
+  color: white;
+}
+
+#consultbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+#deletebtn{
+  border-radius: 50%;
+  border-width: 3px;
+  border-color: rgb(145, 48, 31);
+  border-style: none none solid none;
+  background-color: transparent;
+  color: rgb(145, 48, 31);
+}
+
+#deletebtn:hover{
+  background: rgb(145, 48, 31);
+  border-color: rgb(145, 48, 31);
+  color: white;
+}
+
+#deletebtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+#downloadbtn{
+  border-width: 3px;
+  border-style: none;
+  color: white;
+  background-color: transparent;
+}
+
+#downloadbtn:hover{
+  color: rgb(133, 206, 248);
+}
+
+#downloadbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+#editbtn{
+  border-width: 3px;
+  border-style: none;
+  color: white;
+  background-color: transparent;
+}
+
+#editbtn:hover{
+  color: rgb(228, 166, 96);
+}
+
+#editbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+
 #fileContent{
     background-color: #333333;
     color: white;
@@ -25,17 +98,31 @@ width: 8px;
 
 }
 ::-webkit-scrollbar-track {
-background:#f2e0b0;
+background:grey;
 border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-background-color: #a5423a;
+background-color: #333333;
 border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #68281c;
+  background: #262626;
 }
 #arrowbtn{
   color: #333333;
-  background-color: grey;
+  background-color: transparent;
 }
+
+#arrowbtn:focus{
+  outline: none;
+  box-shadow: none!important;
+}
+
+.content-area{
+  height:700px;
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+
+

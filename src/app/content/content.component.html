@@ -1,10 +1,12 @@
-<div class="container">
+<div class="container"><br>
   <div class="row">
-       <h2 id="head">{{filename}}</h2>
-       <div class="btn-group">
-         <button type="button" class="btn btn-primary btn-sm float-right" value=".float-right" id="createbtn" (click)="consultfile()"><i class="fab fa-cuttlefish"></i></button>&nbsp;&nbsp;
-         <button type="button" class="btn btn-danger btn-sm float-right" value=".float-right" id="createbtn" (click)="open(deleteModal)"><i class="far fa-trash-alt"></i></button>
-         </div>
+  
+        <button type="button" value=".float-right" id="downloadbtn" (click)="downloadFile()"><i class="fas fa-cloud-download-alt fa-2x"></i></button>
+        <button type="button" value=".float-right" id="editbtn" (click)="editMode()"><i class="fas fa-edit fa-2x"></i></button>
+        <button type="button" value=".float-right" id="editbtn" (click)="savefile()" [hidden]="_save">&nbsp;<i class="fas fa-save fa-2x"></i>&nbsp;</button>
+        <h1 id="head" >{{filename}}</h1>  
+        <button type="button" value=".float-right" id="consultbtn" (click)="consultfile()" [hidden]="_consulted || false">&nbsp;<i class="fab fa-cuttlefish"> &nbsp; </i></button>
+        <button type="button" value=".float-right" id="deletebtn" (click)="open(deleteModal)">&nbsp;<i class="far fa-trash-alt"> &nbsp; </i></button>       
   </div>
   <hr>
 </div>
@@ -24,7 +26,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <textarea id="fileContent" readonly>{{content}}</textarea>
+            <ace-editor #editor class="content-area"></ace-editor>       
            <br><br>
         </div>
 </div>
@@ -32,7 +34,7 @@
 
 <ng-template #deleteModal let-c="close" let-d="dismiss">
   <div class="modal-body">
-      <delfile [filename]='filename' (closeModal)="closes()"></delfile>&nbsp;&nbsp;
-      <button type="button" class="btn btn-danger" (click)="c('Save click')">No</button>
+      <delfile [filename]='filename' [project]='project' (closeModal)="closes()"></delfile>&nbsp;&nbsp;
+      <button type="button" class="btn btn-danger" (click)="closes()">No</button>
   </div>
 </ng-template>

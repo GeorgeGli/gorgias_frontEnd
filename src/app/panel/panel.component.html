@@ -1,40 +1,108 @@
-<div class="container">
-  <div class="row">
-     <h3 id="head">Prolog response</h3>
-  </div><hr>
-</div>
+<!-- Side bar -->
 
-<div class="container">
+<ng-sidebar-container class="d-none d-md-block" id="sidebarcont">
+    <ng-sidebar [(opened)]="_opened" [mode]="_mode[mode_number]" [closeOnClickOutside]="false" [position]="'left'">
+        <br>
+      <h3 style="color:white;text-align:center;">Consulted files</h3>
+      <hr style="background-color:white;border-color:white">  
+      <ul *ngFor="let cfile of getConList()" >
+          <span style="color:white;text-align:left;">{{ cfile }}</span> 
+          <button class="sidebar_btn" (click)="unload_file(cfile)"><i class="fas fa-undo"> </i></button>
+          <button type="button" 
+                  class="sidebar_btn" 
+                  placement="right"
+                  ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." 
+                  popoverTitle="Popover on right">
+                  <i class="fas fa-eye"> </i>
+          </button>
+        <hr>
+      </ul>
+    </ng-sidebar>
+    <!-- sidebar button -->
+  <div ng-sidebar-content class="d-none d-md-block">
+   
 
-  <div class="row">
-      <div class="col-12">
-       <textarea [(ngModel)]="queDisplay" id="queryArea" placeholder="Your query.." readonly></textarea>
-   </div>
+
+
+
+
+    <div  class="container">
+        <br><br>
+        <div class="row">
+      
+          
+      
+           <h2 id="head">Execute panel</h2>
+        </div><hr>
+      </div>
+
+
+      <div class="container">
+
+          <div class="row">
+              
+        
+            <div class="col-12">
+                <button (click)="_toggleSidebar()" class="sidebar-btn_toggle">Toggle sidebar</button>
+               <textarea [(ngModel)]="queDisplay" id="queryArea" placeholder="Your query.." readonly></textarea>
+               
+            </div>
+          
+          </div>
+        
+          <div class="row">
+              <div class="col-12">
+                  <ace-editor #editor class="result-area"></ace-editor>
+              </div>
+          </div>
+        
+        
+        
+        <hr>
+        <div class="row">
+        
+          <div class="col-12">
+              <textarea [(ngModel)]="myTextarea" id="area" placeholder="Write query.." (keyup.enter)="setQuery(myTextarea)"></textarea>
+              
+              <span id="responseSize-container">limit: <input [(ngModel)]="_resNum" id="responseSize" type="text"></span>
+            <br>
+            <button type="button" class="btn btn-success" id="querybtn" (click)="setQuery(myTextarea, _resNum)"><i class="fas fa-angle-right"> Run</i></button>
+          </div>
+        </div>
+        
+        </div>
+        <br><br>
+
+
+
+
+        
+
   </div>
-
-  <div class="row">
-      <div class="col-12">
-       <textarea [(ngModel)]="results" id="resultArea" placeholder="Prolog response.." readonly></textarea>
-   </div>
-  </div>
+</ng-sidebar-container>
 
 
 
-<hr>
-<div class="row">
-
-  <div class="col-12">
-      <textarea [(ngModel)]="myTextarea" id="area" placeholder="Write query.." (keyup.enter)="setQuery(myTextarea)"></textarea>
 
 
-    <div class="btn-group btn-group-sm" id="sizebtn">
-      <button type="button" class="btn btn-primary" (click)="setSize(1)">1</button>
-      <button type="button" class="btn btn-primary" (click)="setSize(10)">10</button>
-      <button type="button" class="btn btn-primary" (click)="setSize(50)">50</button>
-      <button type="button" class="btn btn-primary" (click)="setSize(100)">100</button>
-    </div>
-    <br>
-    <button type="button" class="btn btn-success" id="querybtn" (click)="setQuery(myTextarea)">Run the Query</button>
-  </div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

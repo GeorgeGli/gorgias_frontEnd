@@ -14,8 +14,8 @@
       <label for="pname">project's name:</label>
       <input  required maxlength="40" ngModel name="pname" #pname="ngModel" class="form-control">
       <div class="alert alert-danger" *ngIf="pname.touched && !pname.valid">
-          <div *ngIf="pname.errors.required">name required!</div>
-          <div *ngIf="pname.errors.maxlength">you pass the maximum length limit!</div>
+          <div *ngIf="!!pname.errors.required">name required!</div>
+          <div *ngIf="!!pname.errors.maxlength">you pass the maximum length limit!</div>
       </div>
     </div>
 

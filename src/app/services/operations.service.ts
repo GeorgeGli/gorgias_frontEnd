@@ -12,57 +12,140 @@ export class OperationsService {
       const fd=new FormData();
       fd.append('project_name',name);
 
-      let url = 'http://localhost:8080/jplWebService/create';
+      let url = '/api/create';
     return this.httpClient.post(url, fd, { responseType:'text' });
   }
 
   getProjectFiles(project_name){
-        let url = 'http://localhost:8080/jplWebService/projectFiles?project='+project_name;
+        let url = '/api/projectFiles?project='+project_name;
      return this.httpClient.post<string[]>(url,{});
   }
 
-  getFileContent( filename){
+  getFileContent( filename, project){
       const fd=new FormData();
       fd.append('filename',filename);
-
-      let url = 'http://localhost:8080/jplWebService/content';
+      fd.append('project',project);
+      let url = '/api/content';
     return this.httpClient.post(url, fd, { responseType:'text' });
   }
 
   prologQuery(qr: Object){
-    console.table(qr);
-    const fd=new FormData();
 
-    let url = 'http://localhost:8080/jplWebService/prolog';
+    let url = '/api/prolog';
 
     return this.httpClient.post(url, qr, { responseType:'text' });
   }
 
+  consultViaProj(project, filename){
+  
+    const fd=new FormData();
+    fd.append('filename',filename);
+    fd.append('project',project);
+
+    let url = '/api/consultViaProj';
+
+    return this.httpClient.post(url, fd, { responseType:'text' });
+  }
+
+  consultQuery(qr: String){
+
+    let url = '/api/consult';
+
+    return this.httpClient.post(url, qr, { responseType:'text' });
+  }
+
+  assertQuery(qr: String){
+
+    let url = '/api/assert';
+
+    return this.httpClient.post(url, qr, { responseType:'text' });
+  }
+
+  assertaQuery(qr: String){
+
+    let url = '/api/asserta';
+
+    return this.httpClient.post(url, qr, { responseType:'text' });
+  }
+
+  abolishQuery(qr: String){
+
+    let url = '/api/abolish';
+
+    return this.httpClient.post(url, qr, { responseType:'text' });
+  }
+
+  unloadQuery(qr: String){
+
+    let url = '/api/unload';
+
+    return this.httpClient.post(url, qr, { responseType:'text' });
+  }
+
+  unloadQueryViaProj(project, filename){
+    
+    const fd=new FormData();
+    fd.append('filename',filename);
+    fd.append('project',project);
+
+    let url = '/api/unloadViaProj';
+
+    return this.httpClient.post(url, fd, { responseType:'text' });
+  }
+
+  retractQuery(qr: String){
+
+    let url = '/api/retract';
+
+    return this.httpClient.post(url, qr, { responseType:'text' });
+  }
+
+  proveQuery(qr: Object){
+
+    let url = '/api/prove';
+
+    return this.httpClient.post<string[]>(url, qr);
+  }
+
+  plgQuery(qr: Object){
+    
+    let url = '/api/prolog';
+
+    return this.httpClient.post<string[]>(url, qr);
+  }
+
   uploadFile(file, project){
-      console.log("file: "+file);
-      console.log("project: "+project);
+
       const fd=new FormData();
       fd.append('file',file);
       fd.append('project',project);
 
-      let url = 'http://localhost:8080/jplWebService/addfile';
-   return this.httpClient.post<string>(url, fd)
-              .subscribe((res)=>{
-                     console.log(res);
-                   });
+      let url = '/api/addfile';
+   return this.httpClient.post<string>(url, fd);
   }
+ 
+  updateFile(file, project){
+
+    const fd=new FormData();
+    fd.append('file',file);
+    fd.append('project',project);
+
+    let url = '/api/updatefile';
+ return this.httpClient.post<string>(url, fd);
+}
 
   dltProj(project){
       const fd=new FormData();
       fd.append('project',project);
-        let url = 'http://localhost:8080/jplWebService/deleteproject';
+        let url = '/api/deleteproject';
         return this.httpClient.post<string>(url, fd);
   }
 
-  dltFile(filename){
+  dltFile(filename, project){
       const fd=new FormData();
       fd.append('filename',filename);
-        let url = 'http://localhost:8080/jplWebService/deletefile';
+      fd.append('project',project);
+        let url = '/api/deletefile';
         return this.httpClient.post<string>(url, fd);
   }
 }

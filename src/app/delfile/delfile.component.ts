@@ -9,17 +9,31 @@ import { Location } from '@angular/common';
   styleUrls: ['./delfile.component.css']
 })
 export class DelfileComponent implements OnInit {
-  @Input() filename:string;
+
+  @Input('filename') 
+  filename:string;
+
+  @Input('project') 
+  project:string;
+
   @Output()
   closeModal = new EventEmitter<any>();
+
   constructor(private service:OperationsService, private router:Router,private location: Location) { }
 
   ngOnInit() {
   }
+  
   deletefile(){
-    console.log("file to delete: "+this.filename)
-
-    this.service.dltFile(this.filename).subscribe(res=> {this.closeModal.next();
-    this.location.back();})
+   // console.log("file to delete: "+this.filename)
+    //console.log("project to delete: "+this.project)
+    this.service.dltFile(this.filename, this.project)
+                .subscribe((res)=> {
+                    if (res="OK"){
+                      console.log("all good!");
+                      this.closeModal.next();
+                      this.location.back();
+                    }else{console.log("error!")}
+                  })
   }
 }

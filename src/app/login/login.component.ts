@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '../../../node_modules/@angular/router';
 import { SharedService } from '../services/shared.service';
+import { timeout, delay } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'login',
@@ -10,6 +12,8 @@ import { SharedService } from '../services/shared.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+ res:any[];
 
   @Output()
   closeModal = new EventEmitter<any>();
@@ -34,15 +38,28 @@ export class LoginComponent implements OnInit {
     this.credentials.password = cred.passWord;
 
     this.auth.authenticate(this.credentials)
-             .subscribe((response)=>{
-                              this.closeModal.next();
+             .subscribe((response: any)=>{
+               
+                               this.closeModal.next()
+                                                      
+                              if(Object.values(response)[1]=="[ADMIN]"){
 
-                              this.router.navigate(['/panel']);
+                                localStorage.setItem('ID',JSON.stringify(Object.values(response)[0])+'a');
+                                this.shared.setAdminFlag(true);                               
+                                this.router.navigate(['/admin']);
+                              }
+                              else if (Object.values(response)[1]=="[USER]"){
+                                localStorage.setItem('ID',JSON.stringify(Object.values(response)[0]));
+                                this.router.navigate(['/panel']);
+                              }
+                             
                               this.shared.setLoginFlag(true);
-                              sessionStorage.setItem('sesID',JSON.stringify(response));
+                              
                         },
-                        (error)=>{console.log(error);
-                                 this.success=false});
+                        (error)=>{
+                                 console.log(error);
+                                 this.success=false}
+                               );
   }
 
 

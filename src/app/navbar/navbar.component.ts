@@ -12,7 +12,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class NavbarComponent implements OnInit {
 @ViewChild('popover') public popover: NgbPopover;
 projects=[];
-
+isCollapsed: boolean = true;
 
   constructor(private route: Router, private shared: SharedService, private service:AuthenticationService) { }
 
@@ -39,8 +39,12 @@ getProjects(){
 }
 
 getLoginFlag(){
+//console.log("login flag apo navbar: "+this.shared.getLoginFlag());
+//return this.shared.getnavflag();
 return this.shared.getLoginFlag();
-
 }
 
+getAdminFlag(){
+  return this.shared.getAdminFlag();
+}
 }

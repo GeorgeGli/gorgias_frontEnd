@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'footer',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shared: SharedService) { }
 
   ngOnInit() {
   }
 
+
+  getLoginFlag(){
+    return this.shared.getLoginFlag();
+    }
 }

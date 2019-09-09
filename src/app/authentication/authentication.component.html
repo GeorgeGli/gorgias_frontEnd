@@ -16,7 +16,7 @@
       </div>
 
       <div class="tab-pane fade" id="reg" role="tabpanel">
-          <register></register>
+          <register (closeModal)="closes()"></register>
       </div>
 
   </div>
@@ -24,7 +24,7 @@
 
 </ng-template>
 
-<button class="btn btn-primary btn-lg" [hidden]="getLoginFlag()" (click)="open(myModal)">login/register</button>
+<button class="btn btn-primary btn-lg" id="entrybtn" [hidden]="getLoginFlag()" (click)="open(myModal)">login/register</button>
 
 
 

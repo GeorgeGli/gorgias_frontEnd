@@ -1,0 +1,50 @@
+<div class="container"><br>
+    <h1>database statistics</h1><br><br>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>number of files for each user</h2><br><br>
+                <div style="display: block">
+
+                     
+
+                    <canvas  baseChart
+                    height="400" width="400"
+                            [data]="pieUsersData"
+                            [labels]="pieUserslabels"
+                            [colors]="chartUsersColors"
+                            [chartType]="pieChartType"
+                            [options]="chartOptions"
+                          >
+                    </canvas>
+                    
+                </div>
+         </div>
+
+        <div class="col-sm-6">
+            <h2>users,folders and files of database</h2><br><br>
+            <div style="display: block">
+
+                
+
+                <canvas  baseChart
+                height="400" width="400"
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [colors]="pieChartColors"
+                        [chartType]="pieChartType"
+                        [options]="chartOptions"
+                      >
+                </canvas>
+                
+            </div>
+        </div>
+      
+     </div>
+
+</div>
+
+
+   
+ 
+

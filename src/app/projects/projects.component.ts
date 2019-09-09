@@ -20,7 +20,7 @@ modalRef: NgbModalRef;
   }
 
   open(content) {
-    this.modalRef =  this.modalService.open(content);
+    this.modalRef =  this.modalService.open(content, {windowClass: 'modal-holder'});
     }
 
     closes(){

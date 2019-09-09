@@ -4,12 +4,15 @@ import { User } from '../models/user';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
   constructor(private httpClient:HttpClient) { }
+
+
 
   authenticate(credentials){
 
@@ -19,44 +22,54 @@ export class AuthenticationService {
                 } : {}
               );
 
-        let url = 'http://localhost:8080/jplWebService/user';
-      return this.httpClient.get(url, {headers, responseType: 'text'});
+        let url = '/api/user';
+      //return this.httpClient.get(url, {headers, responseType: 'text'});
+      return this.httpClient.get(url, {headers});
   }
 
+
   getUserProjects(){
-        let url = 'http://localhost:8080/jplWebService/userProjects';
+        let url = '/api/userProjects';
     return this.httpClient.get<string[]>(url);
   }
 
+
+
   logout(){
-    let url = 'http://localhost:8080/jplWebService/logout';
-    sessionStorage.removeItem('sesID');
-return this.httpClient.get(url,{ responseType: 'text'});
+        let url = '/api/logout';
+        //sessionStorage.removeItem('sesID');
+    return this.httpClient.get(url,{ responseType: 'text'});
   }
+
+
 
   getUsernameCheck(username){
 
     const fd=new FormData();
     fd.append('username',username);
-    let url = 'http://localhost:8080/jplWebService/usernamecheck';
+    let url = '/api/usernamecheck';
 
     return this.httpClient.post<boolean>(url,fd);
 
   }
+
+
 
   getEmailCheck(email){
 
     const fd=new FormData();
     fd.append('email',email);
-    let url = 'http://localhost:8080/jplWebService/emailcheck';
+    let url = '/api/emailcheck';
 
     return this.httpClient.post<boolean>(url,fd);
 
   }
 
+
+
   register(user: Object){
     console.table(user);
-    let url = 'http://localhost:8080/jplWebService/reg';
+    let url = '/api/register';
 
     return this.httpClient.post<any>(url, user);
   }

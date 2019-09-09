@@ -1,0 +1,40 @@
+.enable{
+    border-width: 3px;
+    border-color: #004d00;
+    border-style: none none solid none;
+    background-color: transparent;
+    border-radius: 50%;
+    color: #004d00;
+}
+
+.enable:hover{
+    background: #004d00;
+    border-color: #004d00;
+    color: white;
+}
+
+.enable:focus{
+    outline: none;
+    box-shadow: none!important;
+  }
+
+.ignore{
+    border-radius: 50%;
+    border-width: 3px;
+    border-color: rgb(145, 48, 31);
+    border-style: solid none none none;
+    background-color: transparent;
+    color: rgb(145, 48, 31);
+}
+
+.ignore:hover{
+    background: rgb(145, 48, 31);
+    border-color: rgb(145, 48, 31);
+    color: white;
+}
+
+.ignore:focus{
+    outline: none;
+    box-shadow: none!important;
+}
+

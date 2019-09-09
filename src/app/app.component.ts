@@ -1,4 +1,6 @@
 import { Component} from '@angular/core';
+import { BnNgIdleService } from 'bn-ng-idle';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,8 +11,13 @@ import { Component} from '@angular/core';
 export class AppComponent {
 
 
-  constructor(){
-
+  constructor(private bnIdle: BnNgIdleService, private route: Router){
+        this.bnIdle.startWatching(800).subscribe((res)=>{
+          if(res){            
+                     this.route.navigate(['/logout']);                     
+                     
+          }
+        })
   }
 
 

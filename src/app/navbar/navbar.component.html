@@ -1,10 +1,37 @@
 <nav class="navbar navbar-expand-sm ">
 
 <!-- Links -->
-<a class="navbar-brand" routerLink="/#"><h2 id="header">Gorgias cloud <i class="fas fa-cloud"></i></h2></a>
+<a class="navbar-brand" routerLink="/#"><h2 id="header">Gorgias cloud <i class="fas fa-cloud" id="cloud"></i></h2></a>
+
+<button class="navbar-toggler ml-auto custom-toggler"
+        type="button"
+        id="togglebtn"
+        data-toggle="collapse"
+        [hidden]="!getLoginFlag()"
+        (click)="isCollapsed= !isCollapsed">
+
+   <span><i class="far fa-caret-square-down fa-2x" [ngStyle]="{ 'color': 'white' }"></i></span>
+
+ </button>
+
+
+ <div class="collapse navbar-collapse"[ngbCollapse]="isCollapsed"id="navbarSupportedContent">
+
+
+
 
 <!-- right navbar -->
 <ul class="navbar-nav ml-auto">
+
+<!-- admin -->
+<li class="nav-item dropdown" [hidden]="!getAdminFlag()">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown">admin <i class="fas fa-user-tie"></i></a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/admin/approval">waiting users</a>
+        <a class="dropdown-item" routerLink="/admin/appusers">users</a>
+        <a class="dropdown-item" routerLink="/admin/infodb">database info </a>
+      </div>
+  </li>
 
 <!-- editor -->
         <li class="nav-item" [hidden]="!getLoginFlag()">
@@ -27,4 +54,8 @@
 
 </ul>
 
+</div>
+
 </nav>
+
+
